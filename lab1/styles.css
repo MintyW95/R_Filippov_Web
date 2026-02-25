@@ -45,12 +45,15 @@ h1
 
 h2
 {
-    margin: 30px 30px;
+    font-size: 30px;
+    text-align: center;
+    color: rgb(241, 233, 221);
 }
 
-h3 
+p
 {
-    margin: 30px 10px;
+    font-size: larger;
+    margin: 30px 30px;
     color: #f0ffff;
     font-family: 'Comic Sans MS', sans-serif, monospace;
     flex: 1;
