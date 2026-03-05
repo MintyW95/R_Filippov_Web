@@ -1,0 +1,250 @@
+body
+{
+    background-color: #0b0d10;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.4;
+}
+
+h1
+{
+    color: red;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+h2
+{
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: red;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-bottom: 10px;
+}
+
+p 
+{
+    color: #cbd5e6;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+img
+{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.header
+{
+    background: #10131c;
+    border-bottom: 2px solid red;
+    padding: 12px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer
+{
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 16px;
+}
+
+.tabs 
+{
+    background: #11151f;
+    border: 2px solid red;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.content 
+{
+    background: #0f131e;
+    padding: 20px;
+    border: 1px solid red;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.name
+{
+    font-size: 1rem;
+    color: red;
+    margin: 5px 0;
+    text-shadow: 2px 2px 4px rgba(247, 0, 0, 0.5);
+}
+
+.popup-top-right 
+{
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.popup-top-left 
+{
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.popup-bottom-right 
+{
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.popup-bottom-left 
+{
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.popup-center
+{
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-overlay 
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.popup-overlay.active 
+{
+    display: flex;
+}
+
+.popup-card 
+{
+    position: relative;
+    margin: 20px;
+    max-width: 300px;
+    width: 90%;
+    overflow: hidden;
+    pointer-events: auto;
+}
+
+.close-btn 
+{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    z-index: 2;
+    line-height: 1;
+    padding: 0;
+    cursor: default;
+}
+
+.popup-image 
+{
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@media (min-width: 320px)
+{
+    h1
+    {
+        font-size: 1.5rem;
+    }
+
+    h2
+    {
+        font-size: 1.3rem;
+    }
+
+    p
+    {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 480px)
+{
+    h1
+    {
+        font-size: 1.8rem;
+    }
+
+    h2
+    {
+        font-size: 1.6rem;
+    }
+
+    p
+    {
+        font-size: 1.05rem;
+    }
+}
+
+@media (min-width: 768px)
+{
+    .tabs
+    {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content
+    {
+        padding: 24px;
+    }
+
+    h1
+    {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 1024px)
+{
+    .tabs
+    {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .footer
+    {
+        padding: 0 20px;
+    }
+
+    h1
+    {
+        font-size: 2.2rem;
+    }
+
+    p
+    {
+        font-size: 1.1rem;
+    }
+}
