@@ -1,5 +1,5 @@
 let chips = 1000;
-const symbols = ["🍒", "🍋", "🍊", "⭐", "💎"];
+const symbols = ["🍒", "🍋", "🍊", "🍇", "💎"];
 let wincount = 0;
 function playSlot() 
 {
@@ -34,7 +34,7 @@ function playSlot()
                 case "🍒": win = win * 25; prompt("МЕГА ВЫИГРЫШ!!! ВЫ НА ТЕЛЕКЕ!!! хотите что-то передать маме?"); break; 
                 case "🍋": win = win * 10; break;
                 case "🍊": win = win * 5; break;
-                case "⭐": win = win * 3; break;
+                case "🍇": win = win * 3; break;
                 case "💎": win = win * 5; break;
             }
             chips += win;
@@ -62,3 +62,4 @@ function playSlot()
     alert("Последний дэп поставил жирную точку в этой истории. Я снял руку с рычага — всё было кончено. Мой баланс был " + chips + " фишек...");
 }
 document.getElementById("slotBtn").addEventListener("click", playSlot);
+
