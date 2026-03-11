@@ -1,6 +1,6 @@
 let chips = 1000;
 const symbols = ["🍒", "🍋", "🍊", "🍇", "💎"];
-let wincount = 0;
+let winCount = 0;
 function playSlot() 
 {
     alert("начинаем наше лудоприключение");
@@ -39,8 +39,8 @@ function playSlot()
             }
             chips += win;
             alert("+" + (win-bet) + " фишек!");
-            wincount += 1;
-            if (wincount == 3) 
+            winCount += 1;
+            if (winCount == 3) 
 	   		{
                 alert("I'm sorry, you just win too much.");
                 alert("[ВАМ ЗАПРЕТИЛИ ИГРАТЬ В ЭТОМ КАЗИНО]");
@@ -62,4 +62,5 @@ function playSlot()
     alert("Последний дэп поставил жирную точку в этой истории. Я снял руку с рычага — всё было кончено. Мой баланс был " + chips + " фишек...");
 }
 document.getElementById("slotBtn").addEventListener("click", playSlot);
+
 
