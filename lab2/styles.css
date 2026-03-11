@@ -38,7 +38,7 @@ img
     display: block;
 }
 
-.header
+header
 {
     background: #10131c;
     border-bottom: 2px solid red;
@@ -52,7 +52,7 @@ img
     flex-wrap: wrap;
 }
 
-.footer
+.main-content
 {
     max-width: 1200px;
     margin: 20px auto;
@@ -172,21 +172,121 @@ img
     object-fit: cover;
 }
 
-@media (min-width: 320px)
+@media (max-width: 360px) 
 {
-    h1
+    h1 
     {
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
+    
+    h2 
+    {
+        font-size: 1rem;
+    }
+    
+    p 
+    {
+        font-size: 0.9rem;
+    }
+    
+    .content 
+    {
+        padding: 12px;
+    }
+    
+    .tabs 
+    {
+        padding: 8px;
+        gap: 8px;
+    }
+}
 
-    h2
+@media (max-width: 499px) 
+{
+    body 
+    {
+        font-size: 16px;
+    }
+    
+    h1 
+    {
+        font-size: 1.3rem;
+        word-break: break-word;
+        hyphens: auto;
+    }
+    
+    h2 
+    {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        word-break: break-word;
+    }
+    
+    p 
+    {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        word-break: break-word;
+    }
+    
+    .header 
+    {
+        padding: 10px 12px;
+    }
+    
+    .main-content 
+    {
+        padding: 0 12px;
+    }
+    
+    .tabs 
+    {
+        padding: 12px;
+        gap: 12px;
+    }
+    
+    .content 
+    {
+        padding: 15px;
+        gap: 8px;
+    }
+    
+    .name 
+    {
+        font-size: 0.95rem;
+    }
+    
+    .popup-card 
+    {
+        margin: 10px;
+        max-width: 280px;
+    }
+    
+    .close-btn 
+    {
+        width: 28px;
+        height: 28px;
+        font-size: 18px;
+        top: 5px;
+        right: 5px;
+    }
+}
+
+@media (min-width: 500px) and (max-width: 600px) 
+{
+    h1 
+    {
+        font-size: 1.7rem;
+    }
+    
+    h2 
     {
         font-size: 1.3rem;
     }
-
-    p
+    
+    p 
     {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 }
 
@@ -233,7 +333,7 @@ img
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .footer
+    .main-content
     {
         padding: 0 20px;
     }
