@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>РЕКЛАМА ИМПЛАНТОВ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>ТОП 5 ПРИЧИН ПОЧЕМУ ТЕБЕ НУЖНЫ ИМПЛАНТЫ</h1>
+        <button id="themeToggle" class="themebutton">☼</button>
+    </header>
+    <main class="main-content">
+        <div class="tabs">
+            <article class="content">
+                <h2>СЛУЧАЙ В МАГАЗИНЕ</h2>
+                <p>Часто случалось, что в погоне за последним Киндер Буэно вас обгоняли? 
+                <br>Решение само Вас нашло! Импланты для ног - станьте быстрее, выше, сильнее!</p>
+            </article>
+            
+            <article class="content">
+                <h2>КРИНЖ</h2>
+                <p>На улице свернули не туда, а резко возвращаться стыдно? Не беда!
+                <br>Лицевая панель с синхронизацией поведенческих отпечатков - вот наш ответ!
+                <br>Просто поменяйте лицо, и можете идти, куда глаза глядят</p>
+            </article>
+            
+            <article class="content">
+                <h2>ГЛАЗА ПОЛЗУТ</h2>
+                <p>Устали читать мелкий текст и сканировать QR-коды вручную? Мы знаем, как Вам помочь! 
+                <br>Глазная техника от Кироши - последнее слово технологий: масштабируйте, сканируйте, 
+                <br>изменяйте цвет каждой части глаза отдельно - удивите себя!</p>
+            </article>
+            
+            <article class="content">
+                <h2>БАНДИТЫ</h2>
+                <p>В тёмном переулке на Вас напали какие-то жалкие воры? Напугайте их!
+                <br>Импланты рук на любой вкус и цвет:
+                <br>колющие, режущие, острые, тупые, умные, стреляющие, не стреляющие, <a href="https://vksport.vkvideo.ru/video-755816_456241769">водородная бомба, кошки куклачова</a></p>
+            </article>
+            
+            <article class="content">
+                <h2>ПОЛОВАЯ ЖИЗНЬ</h2>
+                <p>Ваша жена уже бежит подавать на развод, потому что в совместной жизни пропала перчинка?
+                <br>Установите Мистер Перчик - гарантируем самые яркие впечатления во время актов!</p>
+            </article>
+
+            <article class="content">
+                <h2>ПОКУПАЙ СКОРЕЕ</h2>
+                <p>Сейчас по промокоду "Я от Егора Васильева" действует скидка в 25%(!!!) на все импланты!
+                <br>+ по тому же промокоду действует скидка в 50% на первый имплант для ног</p>
+            </article>
+        </div>
+
+        <footer>
+        <section class="content reviews-section">
+            <h2>ОТЗЫВЫ ДОВОЛЬНЫХ ПОКУПАТЕЛЕЙ</h2>
+        <div class="reviews-container" id="reviewsContainer"></div>
+        <div class="review-form">
+            <h3>ОСТАВЬТЕ СВОЙ ОТЗЫВ!!</h3>
+            <form id="reviewForm">
+            <div class="form-group">
+                <input type="text" id="reviewName" name="name" placeholder="я такой-то такой-то" maxlength="32" required>
+            </div>
+            <div class="form-group">
+                <textarea id="reviewText" name="text" placeholder="думаю то-то то-то" required></textarea>
+            </div>
+            <div class="form-group">
+                <input type="file" id="reviewImage" name="image" accept="image/*">
+                <div class="image-preview" id="imagePreview"></div>
+            </div>
+            <div class="form-error" id="formError"></div>
+            <button type="submit" class="submit-btn">Отправить</button>
+            </form>
+        </div>
+        </section>
+    </footer>
+    <div class="popup-overlay popup-top-right" id="popup1">
+        <div class="popup-card">
+            <div class="close-btn" onclick="hidePopup('popup1')">&times;</div>
+            <a href="https://cyberpunk.fandom.com/ru/wiki/Мистер_Перчик" target="_blank" class="popup-link">
+                <img src="https://i.ibb.co/Jjbk7KSS/image.png" alt="МИСТЕР ПЕРЧИК" class="popup-image">
+            </a>
+        </div>
+    </div>
+    <div class="popup-overlay popup-top-left" id="popup2">
+        <div class="popup-card">
+            <div class="close-btn" onclick="hidePopup('popup2')">&times;</div>
+            <a href="https://cyberpunk-baza.ru/Implants/suhozhiliya-dzhenkinsa.htm" target="_blank" class="popup-link">
+                <img src="https://i.ibb.co/YTRydMPp/image.png" alt="сухожилия дженкинса" class="popup-image">
+            </a>
+        </div>
+    </div>
+    <div class="popup-overlay popup-bottom-right" id="popup3">
+        <div class="popup-card">
+            <div class="close-btn" onclick="hidePopup('popup3')">&times;</div>
+            <a href="https://cyberpunk-baza.ru/Weapons/slot-o-matic.htm" target="_blank" class="popup-link">
+                <img src="https://i.ibb.co/x8LbHQxx/image.png" alt="слот о-матик" class="popup-image">
+            </a>
+        </div>
+    </div>  
+    <div class="popup-overlay popup-bottom-left" id="popup4">
+        <div class="popup-card">
+            <div class="close-btn" onclick="hidePopup('popup4')">&times;</div>
+            <a href="https://www.youtube.com/watch?v=aSQvmkor0TE&pp=ygUPc2FtdXJhaSBjb25jZXJ0" target="_blank" class="popup-link">
+                <img src="https://i.ibb.co/Mx9xRDnQ/image.png" alt="чтооо так они же распались" class="popup-image">
+            </a>
+        </div>
+    </div>
+    <div class="popup-overlay popup-center" id="popup5">
+        <div class="popup-card">
+            <div class="close-btn" onclick="hidePopup('popup5')">&times;</div>
+            <a href="https://cyberpunk.fandom.com/wiki/Locust_Pepperoni_Pizza">
+                <img src="https://i.ibb.co/kggnrsVr/image.png" alt="пиццо" class="popup-image">
+            </a>
+        </div>
+    </div>
+    <div class="popup-overlay" id="popup6">
+        <div class="popup-card">
+            <div class="close-btn" onclick="hidePopup('popup6')">&times;</div>
+            <a href="https://cyberpunk.fandom.com/ru/wiki/%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80_%D0%92%D0%B5%D0%BA%D1%82%D0%BE%D1%80" target="_blank">
+                <img src="https://i.ibb.co/fVPFHmfH/80795440-377-C-4-E89-8-E80-13-EB04-C44625.png" alt="витя" class="popup-image">
+            </a>
+        </div>
+    </div>
+    <div class="popup-overlay" id="popup7">
+        <div class="popup-card">
+            <div class="close-btn" onclick="hidePopup('popup7')">&times;</div>
+            <a href="https://cyberpunk.fandom.com/ru/wiki/%D0%9E%D0%BB%D0%BB_%D1%84%D1%83%D0%B4%D1%81" target="_blank">
+                <img src="https://i.ibb.co/FRcb1R4/image.png" alt="мясоо" class="popup-image">
+            </a>
+        </div>
+    </div>
+    </main>
+<script src="cookies.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
