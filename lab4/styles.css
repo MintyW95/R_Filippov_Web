@@ -1,0 +1,524 @@
+body
+{
+    background-color: #0b0d10;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.4;
+}
+
+h1
+{
+    color: red;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+h2
+{
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: red;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding-bottom: 10px;
+}
+
+p 
+{
+    color: #cbd5e6;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+img
+{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+header
+{
+    background: #10131c;
+    border-bottom: 2px solid red;
+    padding: 12px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.main-content
+{
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 16px;
+}
+
+.tabs 
+{
+    background: #11151f;
+    border: 1px solid red;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.content 
+{
+    background: #0f131e;
+    padding: 20px;
+    border: 1px solid red;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.name
+{
+    font-size: 1rem;
+    color: red;
+    margin: 5px 0;
+    text-shadow: 2px 2px 4px rgba(247, 0, 0, 0.5);
+}
+
+body.bright
+{
+    background-color: #f4f6fb;
+}
+
+body.bright p
+{
+    color: #222;
+}
+
+body.bright header
+{
+    background: #ffffff;
+}
+
+body.bright .tabs
+{
+    background: #ffffff;
+}
+
+body.bright .content
+{
+    background: #f0f2f8;
+}
+
+.themebutton
+{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    background-color: #ffffff00;
+    color: rgb(255, 255, 255);
+    border: none;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+body.bright .themebutton
+{
+    color: rgb(0, 0, 0);
+}
+
+.popup-overlay 
+{
+    position: fixed;
+    display: none;
+    pointer-events: none;
+    z-index: 100;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    height: auto;
+    background: transparent;
+    top: auto; 
+    left: auto;
+    bottom: auto;
+    right: auto;
+}
+
+.popup-overlay.active 
+{
+    display: block;
+}
+
+.popup-image 
+{
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.popup-card 
+{
+    position: relative;
+    max-width: 300px;
+    width: 100%;
+    overflow: hidden;
+    pointer-events: auto;
+}
+
+.close-btn 
+{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    z-index: 2;
+    line-height: 1;
+    padding: 0;
+    cursor: default;
+}
+
+.reviews-section 
+{
+    margin-top: 30px;
+}
+
+.reviews-container 
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.review-item 
+{
+    background: #1a1f2e;
+    border: 1px solid red;
+    padding: 15px;
+}
+
+.review-name 
+{
+    font-size: 1.1rem;
+    color: red;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(247, 0, 0, 0.3);
+    font-weight: bold;
+}
+
+.review-text 
+{
+    color: #cbd5e6;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.review-image 
+{
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border: 1px solid red;
+    margin-top: 10px;
+    cursor: default;
+}
+
+.review-form 
+{
+    background: #0f131e;
+    border: 1px solid red;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.review-form h3 
+{
+    color: red;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.form-group 
+{
+    margin-bottom: 15px;
+}
+
+.form-group input[type="text"],
+.form-group textarea 
+{
+    width: 100%;
+    padding: 10px;
+    background: #1a1f2e;
+    border: 1px solid red;
+    color: #cbd5e6;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.form-group textarea 
+{
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-group input[type="file"] 
+{
+    width: 100%;
+    padding: 10px 0;
+    color: #cbd5e6;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus 
+{
+    outline: none;
+    border-color: #ff4444;
+}
+
+.form-error 
+{
+    color: red;
+    margin-bottom: 10px;
+    min-height: 20px;
+    font-size: 0.9rem;
+}
+
+.submit-btn
+{
+    background: transparent;
+    color: red;
+    border: 2px solid red;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.submit-btn:hover 
+{
+    background: red;
+    color: #0b0d10;
+}
+
+body.bright .review-item 
+{
+    background: #ffffff;
+}
+
+body.bright .review-text 
+{
+    color: #222;
+}
+
+body.bright .review-form 
+{
+    background: #f0f2f8;
+}
+
+body.bright .form-group input[type="text"],
+body.bright .form-group textarea 
+{
+    background: #ffffff;
+    color: #222;
+    border-color: #666;
+}
+
+body.bright .form-group input[type="file"] 
+{
+    color: #222;
+}
+
+@media (max-width: 360px) 
+{
+    h1 
+    {
+        font-size: 1.1rem;
+    }
+    
+    h2 
+    {
+        font-size: 1rem;
+    }
+    
+    p 
+    {
+        font-size: 0.9rem;
+    }
+    
+    .content 
+    {
+        padding: 12px;
+    }
+    
+    .tabs 
+    {
+        padding: 8px;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 540px) 
+{
+    body 
+    {
+        font-size: 16px;
+    }
+    
+    h1 
+    {
+        font-size: 1.3rem;
+        word-break: break-word;
+        hyphens: auto;
+    }
+    
+    h2 
+    {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        word-break: break-word;
+    }
+    
+    p 
+    {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        word-break: break-word;
+    }
+    
+    .header 
+    {
+        padding: 10px 12px;
+    }
+    
+    .main-content 
+    {
+        padding: 0 12px;
+    }
+    
+    .tabs 
+    {
+        padding: 12px;
+        gap: 12px;
+    }
+    
+    .content 
+    {
+        padding: 15px;
+        gap: 8px;
+    }
+    
+    .name 
+    {
+        font-size: 0.95rem;
+    }
+    
+    .popup-card 
+    {
+        margin: 10px;
+        max-width: 280px;
+    }
+    
+    .close-btn 
+    {
+        width: 28px;
+        height: 28px;
+        font-size: 18px;
+        top: 5px;
+        right: 5px;
+    }
+}
+
+@media (min-width: 480px)
+{
+    h1
+    {
+        font-size: 1.8rem;
+    }
+
+    h2
+    {
+        font-size: 1.6rem;
+    }
+
+    p
+    {
+        font-size: 1.05rem;
+    }
+}
+
+@media (min-width: 768px)
+{
+    .tabs
+    {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content
+    {
+        padding: 24px;
+    }
+
+    h1
+    {
+        font-size: 2rem;
+    }
+
+    .reviews-container
+    {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .submit-btn 
+    {
+        width: auto;
+        min-width: 200px;
+    }
+}
+
+@media (min-width: 1024px)
+{
+    .tabs
+    {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .main-content
+    {
+        padding: 0 20px;
+    }
+
+    h1
+    {
+        font-size: 2.2rem;
+    }
+
+    p
+    {
+        font-size: 1.1rem;
+    }
+
+    .reviews-container 
+    {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
