@@ -15,6 +15,11 @@
             this.#standType = standType.trim();
             this.#specialAbility = specialAbility?.trim() || "";
         }
+        getImage() {return this.#image;}
+        getStandName() {return this.#standName;}
+        getOwner() {return this.#owner;}
+        getMeaning() {return this.#meaning;}
+        getNumber() {return this.#number;}
         getName() {return this.#name;}
         getHTML(small = true) 
         {
@@ -93,6 +98,7 @@
     }
     let deck = [];
     let isEditMode = false;
+    let isFortuneRunning = false;
     const defaultDeckData = 
     [
         {classType:"FarStand", name:"The Fool", image:"https://static.jojowiki.com/images/3/34/latest/20201003160506/0_OVATarot_TheFool.png", number:0, meaning:"Невинность и непосредственность", standName:"The Fool", owner:"Игги"},
@@ -100,8 +106,8 @@
         {classType:"RemoteStand", name:"The High Priestess", image:"https://static.jojowiki.com/images/7/7a/latest/20201003160515/2_OVATarot_TheHighPriestess.png", number:2, meaning:"Интуиция и тайные знания", standName:"High Priestess", owner:"Мидлер"},
         {classType:"CloseStand", name:"The Empress", image:"https://static.jojowiki.com/images/e/ed/latest/20201003160520/3_OVATarot_TheEmpress.png", number:3, meaning:"Рост новой жизни", standName:"Empress", owner:"Нэна"},
         {classType:"FarStand", name:"The Emperor", image:"https://static.jojowiki.com/images/2/26/latest/20201003160526/4_OVATarot_TheEmperor.png", number:4, meaning:"Порядок и контроль", standName:"Emperor", owner:"Хол Хорс"},
-        {classType:"FarStand", name:"The Hierophant", image:"https://static.jojowiki.com/images/7/7f/latest/20201003160530/5_OVATarot_TheHierophant.png", number:5, meaning:"Традиция и конформизм", standName:"Hierophant Green", owner:"Нориаки Какёин"},
-        {classType:"FarStand", name:"The Lovers", image:"https://static.jojowiki.com/images/9/92/latest/20201003160534/6_OVATarot_TheLover.png", number:6, meaning:"Сознательные связи и узы", standName:"Lovers", owner:"Стили Дэн"},
+        {classType:"RemoteStand", name:"The Hierophant", image:"https://static.jojowiki.com/images/7/7f/latest/20201003160530/5_OVATarot_TheHierophant.png", number:5, meaning:"Традиция и конформизм", standName:"Hierophant Green", owner:"Нориаки Какёин"},
+        {classType:"RemoteStand", name:"The Lovers", image:"https://static.jojowiki.com/images/9/92/latest/20201003160534/6_OVATarot_TheLover.png", number:6, meaning:"Сознательные связи и узы", standName:"Lovers", owner:"Стили Дэн"},
         {classType:"CloseStand", name:"The Chariot", image:"https://static.jojowiki.com/images/4/4f/latest/20201003160538/7_OVATarot_TheChariot.png", number:7, meaning:"Вторжение и победа", standName:"Silver Chariot", owner:"Жан-Пьер Польнарефф"},
         {classType:"CloseStand", name:"Strength", image:"https://static.jojowiki.com/images/b/b7/latest/20201003160543/8_OVATarot_Strength.png", number:8, meaning:"Устойчивость, сострадание и уверенность", standName:"Strength", owner:"Форевер"},
         {classType:"FarStand", name:"The Hermit", image:"https://static.jojowiki.com/images/8/8e/latest/20201003160547/9_OVATarot_TheHermit.png", number:9, meaning:"Самоанализ и созерцание", standName:"Hermit Purple", owner:"Джозеф Джостар"},
@@ -149,6 +155,7 @@
         `
             <header>
                 <h1>РАСКЛАД ТАРО ОНЛАЙН</h1>
+                <button class="im-feeling-lucky-btn" id="lucky">Личный расклад</button>
                 <button class="backintime-btn" onclick="resetDeck()">Кнопка Пуччи</button>
                 <button id="editToggle" class="edit-toggle">✎</button>
             </header>
@@ -156,6 +163,11 @@
                 <div class="deck-container" id="deckContainer"></div>
                 <button class="addcard-btn" id="addCardBtn"> + НОВАЯ КАРТА (сломать канон)</button>
             </main>
+            <div id="fortuneResult">
+                <div class="fortune-title">ТВОЯ СУДЬБА ПРЕДРЕШЕНА!!!</div>
+                <img id="fortuneTeller" src="https://static.wikia.nocookie.net/jojo/images/7/7b/Enya_Infobox_Manga.png/revision/latest?cb=20210528182751&path-prefix=ru" alt="старуха эния" style="display:none;">
+                <div class="prediction-container" id="predictionCards"></div>
+            </div>
             <div class="popup-overlay" id="viewPopup">
                 <div class="popup-card">
                     <button class="close-btn" onclick="hidePopup()">✕</button>
@@ -165,7 +177,57 @@
         `;
         document.getElementById("editToggle").addEventListener("click", toggleEditMode);
         document.getElementById("addCardBtn").addEventListener("click", addNewCard);
+        document.getElementById("lucky").addEventListener("click", startFortune);
         loadDeck();
+    }
+
+    function startFortune() 
+    {
+        if (isFortuneRunning)
+        {
+            alert("уже гадаем");
+            return;
+        }
+        else if(deck.length < 3)
+        {
+            alert("мало карт")
+            return;
+        }
+        isFortuneRunning = true;
+        const btn = document.getElementById("lucky");
+        btn.disabled = true;
+        const resultDiv = document.getElementById("fortuneResult");
+        resultDiv.classList.add("active");
+        const tellerImg = document.getElementById("fortuneTeller");
+        tellerImg.style.display = "block";
+        const tempDeck = [...deck];
+        const selected = [];
+        for (let i = 0; i < 3; i++) 
+        {
+            const randIndex = Math.floor(Math.random() * tempDeck.length);
+            selected.push(tempDeck[randIndex]);
+            tempDeck.splice(randIndex, 1);
+        }
+        const labels = ["ПРОШЛОЕ", "НАСТОЯЩЕЕ", "БУДУЩЕЕ"];
+        const container = document.getElementById("predictionCards");
+        container.innerHTML = "";
+        selected.forEach((card, i) => 
+        {
+            const div = document.createElement("div");
+            div.className = "prediction-card visible";
+            div.innerHTML = 
+            `
+                <img src="${card.getImage()}">
+                <div class="prediction-label">${labels[i]}</div>
+                <strong>${card.getName()}</strong><br>
+                <em>${card.getMeaning()}</em>
+            `;
+            container.appendChild(div);
+            btn.disabled = false;
+            btn.textContent = "РАСКЛАД ТАРО";
+            isFortuneRunning = false;
+        });
+        window.scrollTo({top: document.body.scrollHeight, behavior: "smooth"});
     }
 
     window.resetDeck = function() 
