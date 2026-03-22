@@ -98,7 +98,6 @@
     }
     let deck = [];
     let isEditMode = false;
-    let isFortuneRunning = false;
     const defaultDeckData = 
     [
         {classType:"FarStand", name:"The Fool", image:"https://static.jojowiki.com/images/3/34/latest/20201003160506/0_OVATarot_TheFool.png", number:0, meaning:"Невинность и непосредственность", standName:"The Fool", owner:"Игги"},
@@ -183,19 +182,12 @@
 
     function startFortune() 
     {
-        if (isFortuneRunning)
-        {
-            alert("уже гадаем");
-            return;
-        }
-        else if(deck.length < 3)
+        if(deck.length < 3)
         {
             alert("мало карт")
             return;
         }
-        isFortuneRunning = true;
         const btn = document.getElementById("lucky");
-        btn.disabled = true;
         const resultDiv = document.getElementById("fortuneResult");
         resultDiv.classList.add("active");
         const tellerImg = document.getElementById("fortuneTeller");
@@ -223,9 +215,6 @@
                 <em>${card.getMeaning()}</em>
             `;
             container.appendChild(div);
-            btn.disabled = false;
-            btn.textContent = "РАСКЛАД ТАРО";
-            isFortuneRunning = false;
         });
         window.scrollTo({top: document.body.scrollHeight, behavior: "smooth"});
     }
